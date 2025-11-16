@@ -3,12 +3,16 @@ date: '2017-01-01'
 title: ''
 company: 'Achievements'
 location: 'Manipal, India'
-range: 'January 2018 - May 2022'
+range: 'January 2018 - November 2024'
 url: ''
 ---
 
-- Selected for <b><a href="https://www.pupilfirst.org/fb" target="_blank">Facebook School of Innovation, Spark AR program</a></b> amongst **more than 10000 participants** and received industrial training in Augmented Reality for 6 months.
-- **Winner of the HealthCare Track** at Mined Hackathon. Mined is a Nationwide Hackathon organized by Nirma University in collaboration with Binghamton University where **629 students participated from over 20 colleges.**
-- Python National Scholarship Quiz Winner
-- Second Place in a inter-university “Apti-Brain” Competition Aptitude Test
-- Received Best Actor Male award in inter institute one-act drama competition
+- Recognized at <b>Deloitte USI</b> with multiple performance awards —
+  Spot Award (2023, 2024), Applause Award (2024) — for consistently delivering high-quality work on a major U.S. healthcare client engagement.
+- Recognized by <b>HCSC</b> with Outstanding Performance Award (2024) — ffor consistently delivering high-quality features and cross-team collaboration on a critical claims platform engagement.
+- <b>Winner</b> in the <b>“Code Innovation Series Hackathon”</b>  organized by GitHub and IncubateIND at Manipal Institute of Technology (August 2021)
+  earning a Certificate of Appreciation for building a working solution under tight time
+  constraints with your team.
+- Served as a <b>Tech Mentor</b> at Deloitte USI, conducting weekly Java/Angular mentoring
+  sessions for new joiners and creating onboarding SOPs to help them ramp up faster.
+

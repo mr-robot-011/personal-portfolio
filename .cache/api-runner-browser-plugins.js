@@ -6,7 +6,7 @@ module.exports = [{
       options: {"plugins":[]},
     },{
       plugin: require('../node_modules/gatsby-plugin-manifest/gatsby-browser.js'),
-      options: {"plugins":[],"name":"ChinmayMishra","short_name":"ChinmayMishra","start_url":"/","background_color":"#020c1b","theme_color":"#0a192f","display":"minimal-ui","icon":"src/images/logo.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"8ceeb890a9ccbd8bd3b456bb5d8d56de"},
+      options: {"plugins":[],"name":"ChinmayMishra","short_name":"ChinmayMishra","start_url":"/","background_color":"#020c1b","theme_color":"#0a192f","display":"minimal-ui","icon":"src/images/logo.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"b38b99df57d1e21aa3736aa8aa6e184a"},
     },{
       plugin: require('../node_modules/gatsby-plugin-offline/gatsby-browser.js'),
       options: {"plugins":[]},
