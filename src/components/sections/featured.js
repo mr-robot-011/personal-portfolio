@@ -308,7 +308,7 @@ const Featured = () => {
     {
       featured: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/featured/" } }
-        sort: { fields: [frontmatter___date], order: ASC }
+        sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
           node {
@@ -373,7 +373,7 @@ const Featured = () => {
                       dangerouslySetInnerHTML={{ __html: html }}
                     />
 
-                    {tech.length && (
+                    {tech && tech.length > 0 && (
                       <ul className="project-tech-list">
                         {tech.map((tech, i) => (
                           <li key={i}>{tech}</li>
@@ -403,7 +403,11 @@ const Featured = () => {
 
                 <div className="project-image">
                   <a href={external ? external : github ? github : '#'}>
-                    <GatsbyImage image={image} alt={title} className="img" />
+                    {image ? (
+                      <GatsbyImage image={image} alt={title} className="img" />
+                    ) : (
+                      <div className="img" style={{ backgroundColor: 'var(--green)', height: '100%' }} />
+                    )}
                   </a>
                 </div>
               </StyledProject>

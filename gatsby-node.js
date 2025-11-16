@@ -66,6 +66,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   });
 };
 
+// Explicitly define frontmatter fields so GraphQL queries don't fail when
+// some markdown files are missing optional fields like `cover` or `cta`.
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  createTypes(`
+    type MarkdownRemarkFrontmatter {
+      cover: File @fileByRelativePath
+      cta: String
+    }
+  `);
+};
+
 // https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules

@@ -1,8 +1,8 @@
 ---
-date: '2010-01-01'
+date: '2017-01-01'
 title: ''
 company: 'Achievements'
-location: 'Ahmedabad, India'
+location: 'Manipal, India'
 range: 'January 2018 - May 2022'
 url: ''
 ---

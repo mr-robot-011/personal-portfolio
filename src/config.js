@@ -1,5 +1,5 @@
 module.exports = {
-  email: 'desaiparth2000@gmail.com',
+  email: 'chinmay.neu@gmail.com',
 
   socialMedia: [
     {
@@ -33,14 +33,14 @@ module.exports = {
       name: 'Contact',
       url: '/#contact',
     },
-    {
-      name: 'Blog',
-      url: 'https://musing.vercel.app/',
-    },
+    // {
+    //   name: 'Blog',
+    //   url: 'https://musing.vercel.app/',
+    // },
   ],
 
   colors: {
-    green: '#64ffda',
+    green: '#f59e0b',
     navy: '#0a192f',
     darkNavy: '#020c1b',
   },

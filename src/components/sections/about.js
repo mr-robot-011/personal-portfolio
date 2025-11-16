@@ -136,27 +136,20 @@ const About = () => {
           <div>
             <p>
               I finished my bachelors from{' '}
-              <a href="https://nirmauni.ac.in/" target="_blank" rel="noreferrer">
-                Nirma University
+              <a href="https://www.manipal.edu/mit.html" target="_blank" rel="noreferrer">
+                MIT Manipal
               </a>{' '}
-              in 2022. I was introduced to Data Science in my 5<sup>th</sup> semester and have been
-              interested ever since. Besides studying and programming, I love participating in
-              debates, extempores or general discussions. On an off day you'll find me bundled up in
-              a corner reading something.
+              in 2022. I was introduced to Data Science in my 5<sup>th</sup> semester, where I explored product development and systems thinking. Outside classes, I enjoy lively debates, open discussions, and always find time for a good book.
             </p>
 
             <p>
-              I am always looking to learn new things. I am currently working on a few projects
-              related to <b>Natural Language Processing</b> and <b>Machine Learning</b>. At the same
-              time I am actively on the lookout for remote internships which I can pursue in field
-              of Data Science.
+  I am always eager to learn and take on new challenges. Currently, I am developing projects that blend data analytics, product thinking, and user experience, with particular interest in Natural Language Processing and Machine Learning. Alongside this, I am actively exploring opportunities in product and technical program management, aiming to contribute to innovative teams and impactful solutions.
             </p>
 
             <p>
-              I am a strong advocate for open source and I am always interested in working on new
-              projects with new people. Do check out my{' '}
+I’m passionate about open source and thrive in collaborative environments—working with new people and tackling diverse projects energizes me. Feel free to check out my{' '}
               <a
-                href="https://github.com/pycoder2000?tab=repositories"
+                href="https://github.com/mr-robot-011"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -164,14 +157,14 @@ const About = () => {
               </a>{' '}
               and feel free to reach out on{' '}
               <a
-                href="https://api.whatsapp.com/send?phone=916358190818&text=hi"
+                href="https://api.whatsapp.com/send?phone=16173717599&text=hi"
                 target="_blank"
                 rel="noreferrer"
               >
                 Whatsapp
               </a>{' '}
               or{' '}
-              <a href="mailto:%20desaiparth2000@gmail.com" target="_blank" rel="noreferrer">
+              <a href="mailto:%20chinmay.neu@gmail.com" target="_blank" rel="noreferrer">
                 email
               </a>{' '}
               if you would like to collaborate on any project.
@@ -189,7 +182,8 @@ const About = () => {
           <div className="wrapper">
             <StaticImage
               className="img"
-              src="../../images/profile.jpeg"
+              // demo.png exists in src/images/ — use it instead of the missing image.jpg
+              src="../../images/profile.jpg"
               width={500}
               quality={100}
               formats={['AUTO', 'WEBP', 'AVIF']}

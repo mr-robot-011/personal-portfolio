@@ -59,30 +59,27 @@ const Hero = () => {
   }, []);
 
   const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Parth Desai.</h2>;
-  const three = <h3 className="big-heading">I design and code simple things.</h3>;
+const two = <h2 className="big-heading">Chinmay Mishra.</h2>;
+const three = <h3 className="big-heading">I orchestrate digital experiences that solve real-world problems.</h3>;
   const four = (
     <>
-      <p>
-        I am an India based Data Engineer with a bachelors in Computer Science. I am passionate
-        about Data Science and Automation. I am also fascinated with Mathematics and wish to make a
-        career out of it someday. Currently, I’m focused on building data pipelines and automating
-        them at{' '}
-        <a
-          href="https://www.accenture.com/gr-en/about/consulting-index"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Accenture
-        </a>
-        .
-      </p>
+ <p>
+  I am a data and technology enthusiast with a background in Software Engineering, currently pursuing my Master’s in Engineering Management at Northeastern University, Boston. I’m passionate about data science, automation, and product innovation. My experience spans building and automating data pipelines, leading agile projects, and delivering business insights at{' '}
+  <a
+    href="https://www2.deloitte.com"
+    target="_blank"
+    rel="noreferrer"
+  >
+    Deloitte
+  </a>
+  . I’m fascinated by the intersection of math, technology, and real-world impact—and I aspire to craft solutions that simplify complexity and create lasting value.
+</p>
     </>
   );
   const five = (
     <a
       className="email-link"
-      href="mailto:desaiparth2000@gmail.com"
+      href="mailto:chinmay.neu@gmail.com"
       target="_blank"
       rel="noreferrer"
     >

@@ -1,11 +1,14 @@
 const config = require("./src/config");
 
 module.exports = {
+  flags: {
+    DEV_SSR: false,
+  },
   siteMetadata: {
-    title: "Portfolio | Parth Desai",
+    title: "Portfolio | Chinmay Mishra",
     description:
       "I am a Data Engineer who is passionate about Data Science and Automation. In my free time, I like developing.",
-    siteUrl: "https://parthdesai.vercel.app", // No trailing slash allowed!
+    siteUrl: "https://ChinmayMishra.vercel.app", // No trailing slash allowed!
     image: "/og.png", // Path to your image you placed in the 'static' folder
     twitterUsername: "@lone_Musk",
   },
@@ -20,8 +23,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "ParthDesai",
-        short_name: "ParthDesai",
+        name: "ChinmayMishra",
+        short_name: "ChinmayMishra",
         start_url: "/",
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,
