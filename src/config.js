@@ -4,15 +4,15 @@ module.exports = {
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/pycoder2000',
+      url: 'https://github.com/mr-robot-011',
     },
     {
-      name: 'Twitter',
-      url: 'https://twitter.com/lone_Musk',
+      name: 'Facebook',
+      url: 'https://www.facebook.com/chinmay.mishra.37201',
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/parth-desai-2bb1b0160/',
+      url: 'https://www.linkedin.com/in/mishra-chinmay/',
     },
   ],
 
