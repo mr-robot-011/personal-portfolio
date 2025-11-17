@@ -7,10 +7,9 @@ module.exports = {
   siteMetadata: {
     title: "Portfolio | Chinmay Mishra",
     description:
-      "I am a Data Engineer who is passionate about Data Science and Automation. In my free time, I like developing.",
+      "Data Engineer focused on scalable data pipelines, automation & full-stack products; award-winning (Deloitte, HCSC) hackathon winner & mentor.",
     siteUrl: "https://ChinmayMishra.vercel.app", // No trailing slash allowed!
     image: "/og.png", // Path to your image you placed in the 'static' folder
-    twitterUsername: "@lone_Musk",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
