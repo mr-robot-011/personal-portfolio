@@ -8,7 +8,7 @@ module.exports = {
     },
     {
       name: 'Facebook',
-      url: 'https://www.facebook.com/chinmay.mishra.37201',
+      url: 'https://www.facebook.com/chinmay.mishra.37201/',
     },
     {
       name: 'Linkedin',
