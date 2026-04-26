@@ -1,5 +1,6 @@
 {
   "name": "v4",
+  "packageManager": "yarn@4.11.0",
   "description": "Personal Website",
   "version": "1.0.0",
   "author": "Chinmay mishra <chinmay.neu@gmail.com>",
