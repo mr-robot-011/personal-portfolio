@@ -266,24 +266,6 @@ const StyledInput = styled.div`
 
 const QUICK_REPLIES = ['About Chinmay', 'Skills', 'Projects', 'Experience', 'Contact'];
 
-const FALLBACK_REPLIES = {
-  'about chinmay': `Hi! I'm Chinmay Mishra — a software & data engineer pursuing a Master's in Engineering Management at Northeastern University. I love building scalable systems, data pipelines, and shipping products that matter.`,
-  skills: `Core skills:\n• Languages: Python, JavaScript, SQL, Java\n• Frontend: React, Gatsby, Next.js\n• Backend: Node.js, Django, FastAPI\n• Data: Spark, Airflow, dbt, Pandas\n• Cloud: AWS, GCP, Azure\n• Tools: Docker, Git, Tableau`,
-  projects: `Some of my work:\n• US Housing Cost Burden Analysis — interactive D3/Plotly dashboard\n• Django Chat App — real-time messaging\n• Flight Price Predictor — ML regression model\n• Salary Predictor — data science project\n\nCheck the Work section above for full details!`,
-  experience: `Most recently at Deloitte as a Software/Data Engineer — building data pipelines, leading agile sprints, and shipping data-driven products at scale. Currently Digital Experience Assistant at Northeastern University.`,
-  contact: `Best way to reach me:\n📧 chinmay.neu@gmail.com\n\nOr hit the "Get In Touch" button on the hero section — I try to respond within 24 hours!`,
-};
-
-function fallbackReply(input) {
-  const lower = input.toLowerCase();
-  for (const [key, val] of Object.entries(FALLBACK_REPLIES)) {
-    if (lower.includes(key) || key.split(' ').some(w => w.length > 3 && lower.includes(w))) {
-      return val;
-    }
-  }
-  return `Feel free to reach out directly at chinmay.neu@gmail.com — I'd love to connect!`;
-}
-
 const ChatBot = () => {
   const [open, setOpen] = useState(false);
   const [pulsing, setPulsing] = useState(false);
@@ -330,10 +312,12 @@ const ChatBot = () => {
         body: JSON.stringify({ message: msg, history }),
       });
 
-      if (!res.ok) {throw new Error('api_error');}
+      if (!res.ok) {
+        throw new Error('api_error');
+      }
 
       const data = await res.json();
-      const reply = data.reply || fallbackReply(msg);
+      const reply = data.reply || 'Sorry, something went wrong. Try again!';
       setHistory(prev => [
         ...prev,
         { role: 'user', content: msg },
@@ -341,8 +325,10 @@ const ChatBot = () => {
       ]);
       setMessages(prev => [...prev, { text: reply, bot: true }]);
     } catch {
-      // API unavailable (local dev or missing key) — use fallback
-      setMessages(prev => [...prev, { text: fallbackReply(msg), bot: true }]);
+      setMessages(prev => [
+        ...prev,
+        { text: 'Unable to reach AI. Please try again shortly.', bot: true },
+      ]);
     } finally {
       setIsTyping(false);
     }
