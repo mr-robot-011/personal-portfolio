@@ -266,24 +266,6 @@ const StyledInput = styled.div`
 
 const QUICK_REPLIES = ['About Chinmay', 'Skills', 'Projects', 'Experience', 'Contact'];
 
-const BOT_REPLIES = {
-  'about chinmay': `Hi! I'm Chinmay Mishra — a software & data engineer pursuing a Master's in Engineering Management at Northeastern University. I love building scalable systems, data pipelines, and shipping products that matter.`,
-  skills: `Core skills:\n• Languages: Python, JavaScript, SQL, Java\n• Frontend: React, Gatsby, Next.js\n• Backend: Node.js, Django, FastAPI\n• Data: Spark, Airflow, dbt, Pandas\n• Cloud: AWS, GCP, Azure\n• Tools: Docker, Git, Tableau`,
-  projects: `Some of my work:\n• US Housing Cost Burden Analysis — interactive D3/Plotly dashboard\n• Django Chat App — real-time messaging\n• Flight Price Predictor — ML regression model\n• Salary Predictor — data science project\n\nCheck the Work section above for full details!`,
-  experience: `Most recently at Deloitte as a Software/Data Engineer — building data pipelines, leading agile sprints, and shipping data-driven products at scale. Currently at Northeastern pursuing Engineering Management.`,
-  contact: `Best way to reach me:\n📧 chinmay.neu@gmail.com\n\nOr hit the "Get In Touch" button on the hero section — I try to respond within 24 hours!`,
-};
-
-function getBotReply(input) {
-  const lower = input.toLowerCase();
-  for (const [key, val] of Object.entries(BOT_REPLIES)) {
-    if (lower.includes(key) || key.split(' ').some(w => lower.includes(w))) {
-      return val;
-    }
-  }
-  return `Good question! Feel free to reach out directly at chinmay.neu@gmail.com — I'd love to connect. You can also browse the sections above to learn more about my work.`;
-}
-
 const ChatBot = () => {
   const [open, setOpen] = useState(false);
   const [pulsing, setPulsing] = useState(false);
@@ -293,6 +275,7 @@ const ChatBot = () => {
       bot: true,
     },
   ]);
+  const [history, setHistory] = useState([]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
@@ -313,20 +296,38 @@ const ChatBot = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isTyping]);
 
-  const sendMessage = text => {
+  const sendMessage = async text => {
     const msg = text || input.trim();
-    if (!msg) {return;}
+    if (!msg || isTyping) {return;}
     setInput('');
     setMessages(prev => [...prev, { text: msg, bot: false }]);
     setIsTyping(true);
-    setTimeout(() => {
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, history }),
+      });
+      const data = await res.json();
+      const reply = data.reply || 'Sorry, something went wrong. Try again!';
+      setHistory(prev => [
+        ...prev,
+        { role: 'user', content: msg },
+        { role: 'assistant', content: reply },
+      ]);
+      setMessages(prev => [...prev, { text: reply, bot: true }]);
+    } catch {
+      setMessages(prev => [...prev, { text: 'Connection error. Please try again.', bot: true }]);
+    } finally {
       setIsTyping(false);
-      setMessages(prev => [...prev, { text: getBotReply(msg), bot: true }]);
-    }, 900 + Math.random() * 500);
+    }
   };
 
   const handleKey = e => {
-    if (e.key === 'Enter') {sendMessage();}
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
   };
 
   return (
