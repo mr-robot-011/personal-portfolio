@@ -3,7 +3,7 @@
   "packageManager": "yarn@4.11.0",
   "description": "Personal Website",
   "version": "1.0.0",
-  "author": "Chinmay mishra <chinmay.neu@gmail.com>",
+  "author": "Chinmay mishra <mishra.ch@northeastern.edu>",
   "repository": {
     "type": "git",
     "url": "https://github.com/mr-robot-011/personal-portfolio"

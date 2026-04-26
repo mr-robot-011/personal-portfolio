@@ -86,13 +86,17 @@ const Hero = () => {
   const [phase, setPhase] = useState('typing');
 
   useEffect(() => {
-    if (prefersReducedMotion) {return;}
+    if (prefersReducedMotion) {
+      return;
+    }
     const timeout = setTimeout(() => setIsMounted(true), navDelay);
     return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
-    if (!isMounted || prefersReducedMotion) {return;}
+    if (!isMounted || prefersReducedMotion) {
+      return;
+    }
     const word = WORDS[wordIdx % WORDS.length];
 
     if (phase === 'typing') {
@@ -147,7 +151,11 @@ const Hero = () => {
   );
 
   const five = (
-    <a className="email-link" href="mailto:chinmay.neu@gmail.com" target="_blank" rel="noreferrer">
+    <a
+      className="email-link"
+      href="mailto:mishra.ch@northeastern.edu"
+      target="_blank"
+      rel="noreferrer">
       Get In Touch
     </a>
   );

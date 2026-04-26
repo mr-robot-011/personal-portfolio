@@ -110,3 +110,4 @@ public
 .idea
 *.swp
 *.swo
+.vercel
