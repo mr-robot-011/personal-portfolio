@@ -22,32 +22,46 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid message' });
   }
 
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    return res.status(500).json({ error: 'API key not configured' });
+  }
+
   try {
-    const messages = [
-      ...history.slice(-6).map(({ role, content }) => ({ role, content })),
-      { role: 'user', content: message },
+    // Convert history: assistant → model (Gemini uses "model" role)
+    const contents = [
+      ...history.slice(-6).map(({ role, content }) => ({
+        role: role === 'assistant' ? 'model' : role,
+        parts: [{ text: content }],
+      })),
+      { role: 'user', parts: [{ text: message }] },
     ];
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents,
+          generationConfig: { maxOutputTokens: 256, temperature: 0.7 },
+        }),
       },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 256,
-        system: SYSTEM_PROMPT,
-        messages,
-      }),
-    });
+    );
 
     const data = await response.json();
-    const reply = data.content?.[0]?.text ?? 'Sorry, I could not generate a response.';
+
+    if (!response.ok) {
+      console.error('Gemini error:', data);
+      return res.status(500).json({ error: 'AI service error' });
+    }
+
+    const reply =
+      data.candidates?.[0]?.content?.parts?.[0]?.text ?? 'Sorry, no response generated.';
     return res.status(200).json({ reply });
   } catch (err) {
-    console.error('Anthropic API error:', err);
+    console.error('Gemini API error:', err);
     return res.status(500).json({ error: 'AI service unavailable' });
   }
 };
